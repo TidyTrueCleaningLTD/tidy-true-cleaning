@@ -1,11 +1,14 @@
 const form = document.getElementById('quoteForm');
+const fallbackBox = document.getElementById('quoteFallback');
+const whatsAppQuoteLink = document.getElementById('whatsAppQuoteLink');
+const emailQuoteLink = document.getElementById('emailQuoteLink');
 
 if (form) {
   form.addEventListener('submit', (event) => {
     event.preventDefault();
 
     const data = new FormData(form);
-    const name = form.querySelector('input[type="text"]')?.value?.trim() || '';
+    const name = data.get('name')?.toString().trim() || '';
     const contact = data.get('contact')?.toString().trim() || '';
     const suburb = data.get('suburb')?.toString().trim() || '';
     const property = data.get('property')?.toString().trim() || '';
@@ -13,24 +16,39 @@ if (form) {
     const time = data.get('time')?.toString().trim() || '';
     const message = data.get('message')?.toString().trim() || '';
 
-    const body = [
-      '您好，想咨询清洁报价：',
+    const bodyLines = [
+      'Hello, I would like a cleaning quote.',
       '',
-      `姓名 / Name: ${name}`,
-      `联系方式 / Contact: ${contact}`,
-      `区域 / Suburb: ${suburb}`,
-      `房型 / Property Details: ${property}`,
-      `服务类型 / Service Type: ${service}`,
-      `希望时间 / Preferred Time: ${time}`,
+      `Name / 姓名: ${name}`,
+      `Contact / 联系方式: ${contact}`,
+      `Suburb / 区域: ${suburb}`,
+      `Property Details / 房型: ${property}`,
+      `Service Type / 服务类型: ${service}`,
+      `Preferred Time / 希望时间: ${time}`,
       '',
-      '现场情况 / Message:',
+      'Message / 现场情况:',
       message,
       '',
-      '如有现场照片，我会另行补发。'
-    ].join('\n');
+      'I can send photos separately if needed.'
+    ];
 
-    const subject = encodeURIComponent(`Quote Request - ${service || 'Cleaning Service'}`);
-    const mailto = `mailto:tidytruecleaningltd@gmail.com?subject=${subject}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailto;
+    const body = bodyLines.join('\n');
+    const subject = `Quote Request - ${service || 'Cleaning Service'}`;
+    const mailto = `mailto:tidytruecleaningltd@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const whatsappText = `Hello, I would like a cleaning quote.%0A%0AName: ${encodeURIComponent(name)}%0AContact: ${encodeURIComponent(contact)}%0ASuburb: ${encodeURIComponent(suburb)}%0AProperty: ${encodeURIComponent(property)}%0AService: ${encodeURIComponent(service)}%0APreferred Time: ${encodeURIComponent(time)}%0A%0AMessage:%0A${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/6421579288?text=${whatsappText}`;
+
+    if (fallbackBox && whatsAppQuoteLink && emailQuoteLink) {
+      fallbackBox.hidden = false;
+      whatsAppQuoteLink.href = whatsappUrl;
+      emailQuoteLink.href = mailto;
+    }
+
+    const tempLink = document.createElement('a');
+    tempLink.href = mailto;
+    tempLink.style.display = 'none';
+    document.body.appendChild(tempLink);
+    tempLink.click();
+    tempLink.remove();
   });
 }
