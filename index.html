@@ -59,16 +59,16 @@
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <p class="eyebrow">AUCKLAND CLEANING SERVICE</p>
-          <h1>专业 Airbnb 清洁、退房清洁、日常清洁、开荒清洁</h1>
-          <p class="hero-text">
-            柏垚清洁（Tidy &amp; True Cleaning Ltd）专注服务奥克兰本地家庭、出租房与短租客户，
-            重点提供 Airbnb 清洁、退房清洁、日常清洁、开荒清洁等服务。客户先提交房型、时间和现场情况，我们再按实际工作量单独报价。
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#contact">提交信息获取报价</a>
-            <a class="btn btn-secondary" href="https://wa.me/6421579288" target="_blank" rel="noopener">WhatsApp 咨询</a>
-          </div>
+         <p class="eyebrow">AUCKLAND CLEANING SERVICE · 奥克兰清洁服务</p>
+<h1>Airbnb Cleaning, End of Tenancy Cleaning, Regular Cleaning &amp; Deep Cleaning<br><span class="headline-sub">Airbnb 清洁、退房清洁、日常清洁、开荒/深度清洁</span></h1>
+<p class="hero-text">
+  Tidy &amp; True Cleaning Ltd provides reliable cleaning services for Auckland homes, rental properties and Airbnb stays. We focus on Airbnb cleaning, end of tenancy cleaning, regular house cleaning and deep cleaning, with quotes based on the actual workload after we review your details and photos.<br>
+  柏垚清洁专注服务奥克兰本地家庭、出租房与短租客户，重点提供 Airbnb 清洁、退房清洁、日常清洁、开荒清洁等服务。客户先提交房型、时间和现场情况，我们再按实际工作量单独报价。
+</p>
+<div class="hero-actions">
+  <a class="btn btn-primary" href="#contact">Get a Quote 获取报价</a>
+  <a class="btn btn-secondary" href="https://wa.me/6421579288" target="_blank" rel="noopener">WhatsApp Quote WhatsApp 咨询</a>
+</div>
           <ul class="hero-points">
             <li>中文 / English 沟通</li>
             <li>适合自住房、出租房、民宿短租、空置房开荒</li>
@@ -263,9 +263,9 @@
         </div>
         <form class="contact-form" id="quoteForm">
           <label>
-            姓名 / Name
-            <input type="text" placeholder="Your name" />
-          </label>
+  Name / 姓名
+  <input type="text" name="name" placeholder="Your name" />
+</label>
           <label>
             电话 / Phone
             <input type="text" name="contact" placeholder="Your phone or WeChat" />
@@ -296,8 +296,15 @@
             现场情况 / Message
             <textarea rows="6" name="message" placeholder="请填写面积、是否偏脏、厨房/卫生间情况、是否有照片、是否需要烤箱/冰箱/玻璃等附加项目"></textarea>
           </label>
-          <button type="submit" class="btn btn-primary full">提交信息，等待单独报价</button>
-          <p class="form-note">提交后会打开你的邮件应用，把询价信息发送到 tidytruecleaningltd@gmail.com。你也可以直接 WhatsApp：021 579 288。</p>
+          <button type="submit" class="btn btn-primary full">Submit Details for a Quote 提交信息获取报价</button>
+<p class="form-note">After you submit, we will try to open your email app. If nothing happens, use the WhatsApp or Email buttons that appear below. / 提交后会尝试打开你的邮件应用；如果没反应，请直接点击下面出现的 WhatsApp 或 Email 按钮。</p>
+<div id="quoteFallback" class="quote-fallback" hidden>
+  <p><strong>Quick send options / 快捷发送方式</strong></p>
+  <div class="quick-contact">
+    <a id="whatsAppQuoteLink" href="#" target="_blank" rel="noopener">Send via WhatsApp 用 WhatsApp 发送</a>
+    <a id="emailQuoteLink" href="#">Send via Email 用邮件发送</a>
+  </div>
+</div>
         </form>
       </div>
     </section>
