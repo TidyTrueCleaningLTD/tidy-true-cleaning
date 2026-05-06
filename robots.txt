@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tidytruecleaningltd.github.io/tidy-true-cleaning/sitemap.xml
