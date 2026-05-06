@@ -30,7 +30,6 @@ if (form) {
       message,
       '',
       'I can send photos separately if needed.',
-      '如需要，我也可以另外发送照片。'
     ];
 
     const body = bodyLines.join('\n');

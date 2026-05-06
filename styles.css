@@ -23,12 +23,6 @@ body {
 
 a { color: inherit; text-decoration: none; }
 .container { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
-.zh-note {
-  color: var(--muted);
-  font-size: 0.82em;
-  font-weight: 500;
-  white-space: nowrap;
-}
 
 .site-header {
   position: sticky;
@@ -113,6 +107,7 @@ h1 {
 }
 
 .hero-text, .lead { color: var(--muted); font-size: 17px; }
+.hero-text { margin-top: 0; }
 .hero-actions {
   display: flex;
   gap: 14px;
